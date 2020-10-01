@@ -44,7 +44,6 @@ SUBDIRS :=  \
 C_SRCS +=  \
 ../main.c \
 ../MCAL/DIO/DIO.c \
-../MCAL/TIM0/interrupt.c \
 ../MCAL/TIM0/TIM0.c \
 ../MCAL/TIM0_PWM/TIM0_PWM.c
 
@@ -58,28 +57,24 @@ ASM_SRCS +=
 OBJS +=  \
 main.o \
 MCAL/DIO/DIO.o \
-MCAL/TIM0/interrupt.o \
 MCAL/TIM0/TIM0.o \
 MCAL/TIM0_PWM/TIM0_PWM.o
 
 OBJS_AS_ARGS +=  \
 main.o \
 MCAL/DIO/DIO.o \
-MCAL/TIM0/interrupt.o \
 MCAL/TIM0/TIM0.o \
 MCAL/TIM0_PWM/TIM0_PWM.o
 
 C_DEPS +=  \
 main.d \
 MCAL/DIO/DIO.d \
-MCAL/TIM0/interrupt.d \
 MCAL/TIM0/TIM0.d \
 MCAL/TIM0_PWM/TIM0_PWM.d
 
 C_DEPS_AS_ARGS +=  \
 main.d \
 MCAL/DIO/DIO.d \
-MCAL/TIM0/interrupt.d \
 MCAL/TIM0/TIM0.d \
 MCAL/TIM0_PWM/TIM0_PWM.d
 
@@ -105,13 +100,6 @@ LINKER_SCRIPT_DEP+=
 	
 
 MCAL/DIO/DIO.o: ../MCAL/DIO/DIO.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.3.300\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-MCAL/TIM0/interrupt.o: ../MCAL/TIM0/interrupt.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.3.300\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

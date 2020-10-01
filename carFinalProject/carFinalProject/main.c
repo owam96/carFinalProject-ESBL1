@@ -9,21 +9,16 @@
 
 volatile uint8_t flag = 0;
 
-float period = 0;
-float TOFF = 0;
-float TON = 0;
-
-int duty = DUTY_30;
-int direction = 1;
-float freq = 51;
-
-uint8_t ButtonState;
-uint8_t Count=0;
-uint8_t LastState=0;
+float period;
+float TOFF;
+float TON;
 
 int main(void)
 {
 	
+	int duty = DUTY_30;
+	int direction = 1;
+	float freq = 51;
 	int count = 1;
 	
 	// Enable pin pull-ups for all connected push-buttons
@@ -66,10 +61,31 @@ int main(void)
     {
 		
 		while(!DIO_READ_BIT(PORT_A, MOVE_STOP_B)){
+			_TIMSK_ |= (1<<_TOIE0_);
+			if(direction == 1){
+				DIO_WRITE_BIT(PORT_B, M1_F, HIGH);
+				DIO_WRITE_BIT(PORT_B, M1_B, LOW);
+				DIO_WRITE_BIT(PORT_B, M2_F, HIGH);
+				DIO_WRITE_BIT(PORT_B, M2_B, LOW);
+			}
+			else if(direction == 2){
+				DIO_WRITE_BIT(PORT_B, M1_F, LOW);
+				DIO_WRITE_BIT(PORT_B, M1_B, HIGH);
+				DIO_WRITE_BIT(PORT_B, M2_F, LOW);
+				DIO_WRITE_BIT(PORT_B, M2_B, HIGH);
+			}
 			dutyCycle(duty, freq);
+			
+
 		}
-		Timer_Stop();
+		
+ 		Timer_Stop();
+		_TIMSK_ &=~(1<<_TOIE0_);
+		DIO_WRITE_BIT(PORT_B, EN1 , LOW);
+		DIO_WRITE_BIT(PORT_B, EN2 , LOW);
+		
 		while(!DIO_READ_BIT(PORT_A, LEFT_B)){
+			_TIMSK_ |= (1<<_TOIE0_);
 			DIO_WRITE_BIT(PORT_B, M1_F, HIGH);
 			DIO_WRITE_BIT(PORT_B, M1_B, LOW);
 			DIO_WRITE_BIT(PORT_B, M2_F, LOW);
@@ -77,7 +93,12 @@ int main(void)
 			dutyCycle(DUTY_30, freq);
 		}
 		Timer_Stop();
+		_TIMSK_ &=~(1<<_TOIE0_);
+		DIO_WRITE_BIT(PORT_B, EN1 , LOW);
+		DIO_WRITE_BIT(PORT_B, EN2 , LOW);
+		
 		while(!DIO_READ_BIT(PORT_A, RIGHT_B)){
+			_TIMSK_ |= (1<<_TOIE0_);
 			DIO_WRITE_BIT(PORT_B, M1_F, LOW);
 			DIO_WRITE_BIT(PORT_B, M1_B, HIGH);
 			DIO_WRITE_BIT(PORT_B, M2_F, HIGH);
@@ -85,27 +106,47 @@ int main(void)
 			dutyCycle(DUTY_30, freq);
 		}
 		Timer_Stop();
+		_TIMSK_ &=~(1<<_TOIE0_);
+		DIO_WRITE_BIT(PORT_B, EN1 , LOW);
+		DIO_WRITE_BIT(PORT_B, EN2 , LOW);
 		if(!DIO_READ_BIT(PORT_A, CHNG_SPD_DIR_B)){
 			count++;
 			if (count == 1){
 				duty = DUTY_30;
-				direction = 1;
+				direction = FORWARD;
 			}
 			else if(count == 2){
 				duty = DUTY_60;
-				direction = 1;
+				direction = FORWARD;
 			}
 			else if(count == 3){
 				duty = DUTY_90;
-				direction = 1;
+				direction = FORWARD;
 			}
 			else if(count == 4){
 				duty = DUTY_30;
-				direction = 2;
+				direction = BACKWARD;
+				count = 0;
 			}
 			while(!DIO_READ_BIT(PORT_A, CHNG_SPD_DIR_B));
-		}
-		
+ 		}
     }
 }
 
+void __vector_11 (void)
+{
+	if (flag==0)
+	{
+		DIO_WRITE_BIT(PORT_B, EN1 , HIGH);
+		DIO_WRITE_BIT(PORT_B, EN2 , HIGH);
+		_TCNT0_=TON;
+		flag=1;
+	}
+	else
+	{
+		DIO_WRITE_BIT(PORT_B, EN1 , LOW);
+		DIO_WRITE_BIT(PORT_B, EN2 , LOW);
+		_TCNT0_= TOFF;
+		flag=0;
+	}
+}

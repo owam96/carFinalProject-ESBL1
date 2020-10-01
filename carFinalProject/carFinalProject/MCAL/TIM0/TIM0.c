@@ -139,12 +139,12 @@ void Timer_MODEs(uint8_t T_mode)
 	else if (T_mode==MODE1)
 	{
 		_TCCR0_ |= (1<<_WGM01_);
-		_TCCR0_ &= !(1<<_WGM00_);
+		_TCCR0_ &= ~(1<<_WGM00_);
 	}
 	else if(T_mode==MODE2)
 	{
 		_TCCR0_ |= (1<<_WGM00_);
-		_TCCR0_ &= !(1<<_WGM01_);		
+		_TCCR0_ &= ~(1<<_WGM01_);		
 	}
 	else if(T_mode==Fast_PWM)
 	{
@@ -162,13 +162,13 @@ void T_COM_non_PWM(uint8_t C_mode)
 	else if(C_mode==COM_Toggel)
 	{
 		_TCCR0_ |=(1<<_COM00_);
-		_TCCR0_ &= !(1<<_COM01_);
+		_TCCR0_ &= ~(1<<_COM01_);
 
 	}
 	else if (C_mode==COM_Clear)
 	{
 		_TCCR0_ |= (1<<_COM01_);
-		_TCCR0_ &= !(1<<_COM00_);
+		_TCCR0_ &= ~(1<<_COM00_);
 	
 	}
 	else if (C_mode==COM_Set)

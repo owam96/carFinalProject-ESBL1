@@ -28,5 +28,8 @@
 #define M2_B 6
 #define M2_F 7
 
+#define FORWARD 1
+#define BACKWARD 2
+
 
 #endif /* DEFINITIONS_H_ */
