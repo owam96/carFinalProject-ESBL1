@@ -7,7 +7,7 @@
 
 extern float TON, TOFF, period;
 
-void dutyCycle(float duty, float freq)
+void TIM0_PWM_start(float duty, float freq)
 {
 	period = 1/freq;
 	TON=(period*duty)/100;
@@ -16,4 +16,12 @@ void dutyCycle(float duty, float freq)
 	TOFF= 255-((CLOCK_INTERNAL*TOFF)/Prescaler_256_);
 	SET_prescaler(Prescaler_256_);
 	
+}
+
+	// Enable OVF interrupt and global interrupt
+	
+void TIM0_PWM_INIT(){
+	Timer_MODEs(MODE0);
+	_TIMSK_ |= (1<<_TOIE0_);
+	_SREG_ |= (1<<I);
 }

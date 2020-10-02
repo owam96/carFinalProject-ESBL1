@@ -6,6 +6,8 @@
 #include "MCAL/TIM0/TIM0.h"
 #include "MCAL/TIM0_PWM/TIM0_PWM.h"
 #include "MCAL/TIM0/interrupt.h"
+#include "ECUAL/CAR.h"
+#include "ECUAL/REMOTE.h"
 
 volatile uint8_t flag = 0;
 
@@ -25,11 +27,7 @@ int main(void)
 	
 	CAR_INIT();
 	
-	// Enable OVF interrupt and global interrupt
-	
-	Timer_MODEs(MODE0);
-	_TIMSK_ |= (1<<_TOIE0_);
-	_SREG_ |= (1<<I);
+	TIM0_PWM_INIT();
 	
 	
     while (1) 
@@ -38,52 +36,38 @@ int main(void)
 		while(!DIO_READ_BIT(PORT_A, MOVE_STOP_B)){
 			_TIMSK_ |= (1<<_TOIE0_);
 			if(direction == 1){
-				DIO_WRITE_BIT(PORT_B, M1_F, HIGH);
-				DIO_WRITE_BIT(PORT_B, M1_B, LOW);
-				DIO_WRITE_BIT(PORT_B, M2_F, HIGH);
-				DIO_WRITE_BIT(PORT_B, M2_B, LOW);
+				CAR_FORWARD();
 			}
 			else if(direction == 2){
-				DIO_WRITE_BIT(PORT_B, M1_F, LOW);
-				DIO_WRITE_BIT(PORT_B, M1_B, HIGH);
-				DIO_WRITE_BIT(PORT_B, M2_F, LOW);
-				DIO_WRITE_BIT(PORT_B, M2_B, HIGH);
+				CAR_BACKWARD();
 			}
-			dutyCycle(duty, freq);
-			
-
+			TIM0_PWM_start(duty, freq);
 		}
 		
- 		Timer_Stop();
+ 		TIM0_STOP();
 		_TIMSK_ &=~(1<<_TOIE0_);
-		DIO_WRITE_BIT(PORT_B, EN1 , LOW);
-		DIO_WRITE_BIT(PORT_B, EN2 , LOW);
+		CAR_STOP();
 		
 		while(!DIO_READ_BIT(PORT_A, LEFT_B)){
 			_TIMSK_ |= (1<<_TOIE0_);
-			DIO_WRITE_BIT(PORT_B, M1_F, HIGH);
-			DIO_WRITE_BIT(PORT_B, M1_B, LOW);
-			DIO_WRITE_BIT(PORT_B, M2_F, LOW);
-			DIO_WRITE_BIT(PORT_B, M2_B, HIGH);
-			dutyCycle(DUTY_30, freq);
+			CAR_LEFT();
+			TIM0_PWM_start(DUTY_30, freq);
 		}
-		Timer_Stop();
+		
+		TIM0_STOP();
 		_TIMSK_ &=~(1<<_TOIE0_);
-		DIO_WRITE_BIT(PORT_B, EN1 , LOW);
-		DIO_WRITE_BIT(PORT_B, EN2 , LOW);
+		CAR_STOP();
 		
 		while(!DIO_READ_BIT(PORT_A, RIGHT_B)){
 			_TIMSK_ |= (1<<_TOIE0_);
-			DIO_WRITE_BIT(PORT_B, M1_F, LOW);
-			DIO_WRITE_BIT(PORT_B, M1_B, HIGH);
-			DIO_WRITE_BIT(PORT_B, M2_F, HIGH);
-			DIO_WRITE_BIT(PORT_B, M2_B, LOW);
-			dutyCycle(DUTY_30, freq);
+			CAR_RIGHT();
+			TIM0_PWM_start(DUTY_30, freq);
 		}
-		Timer_Stop();
+		
+		TIM0_STOP();
 		_TIMSK_ &=~(1<<_TOIE0_);
-		DIO_WRITE_BIT(PORT_B, EN1 , LOW);
-		DIO_WRITE_BIT(PORT_B, EN2 , LOW);
+		CAR_STOP();
+		
 		if(!DIO_READ_BIT(PORT_A, CHNG_SPD_DIR_B)){
 			count++;
 			if (count == 1){

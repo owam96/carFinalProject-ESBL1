@@ -1,6 +1,7 @@
 
 #include "../includes/definitions.h"
 #include "../MCAL/DIO/DIO.h"
+#include "REMOTE.h"
 
 void REMOTE_INIT(){
 

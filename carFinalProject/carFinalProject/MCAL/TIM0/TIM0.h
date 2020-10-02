@@ -131,7 +131,7 @@ uint16_t calculte_total_ovf(float DELAY);//
 uint8_t calculat_num_ticks(float DELAY);//
 void Timer_MODEs(uint8_t T_mode);//
 void SET_prescaler( uint16_t pre);//
-void Timer_Stop();
+void TIM0_STOP();
 void wait_ovf();//
 void OVF_delay(float delay);//
 void DELAYms(float delay);//

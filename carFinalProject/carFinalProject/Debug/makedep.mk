@@ -2,6 +2,10 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+ECUAL\CAR.c
+
+ECUAL\REMOTE.c
+
 main.c
 
 MCAL\DIO\DIO.c

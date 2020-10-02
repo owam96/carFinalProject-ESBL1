@@ -7,6 +7,8 @@
 #define DUTY_60 60
 #define DUTY_90 90
 
-void dutyCycle(float duty, float freq);
+void TIM0_PWM_start(float duty, float freq);
+
+void TIM0_PWM_INIT();
 
 #endif

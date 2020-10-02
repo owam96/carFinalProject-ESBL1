@@ -92,7 +92,7 @@ uint8_t calculat_num_ticks(float DELAY)
 	return TICKs;
 }
 
-void Timer_Stop()
+void TIM0_STOP()
 {
 	_TIFR_ |= (1<<_TOV0_);
 	SET_prescaler(Prescaler_off_);
@@ -115,7 +115,7 @@ void OVF_delay(float delay)
 					
 					_TCNT0_=0;	
 					wait_ovf();
-					Timer_Stop();
+					TIM0_STOP();
 					
 			}
 			
@@ -123,7 +123,7 @@ void OVF_delay(float delay)
 			_TCNT0_=255-tick;
 			SET_prescaler(Prescaler_1024_);
 			wait_ovf();
-			Timer_Stop();
+			TIM0_STOP();
 			
 
 }
@@ -186,7 +186,7 @@ void DELAYms(float delay)
 		_TCNT0_= 255-((CLOCK_INTERNAL*delay));
 		SET_prescaler(Prescaler_1_);
 		wait_ovf();
-		Timer_Stop();
+		TIM0_STOP();
 		
 	}
 	
@@ -196,7 +196,7 @@ void DELAYms(float delay)
 		_TCNT0_= 255-((CLOCK_INTERNAL*delay)/Prescaler_8_);
 		SET_prescaler(Prescaler_8_);
 		wait_ovf();
-		Timer_Stop();
+		TIM0_STOP();
 		
 	}
 	else if((Calculate_max_time(Prescaler_64_))>=delay)
@@ -204,7 +204,7 @@ void DELAYms(float delay)
 		_TCNT0_= 255-((CLOCK_INTERNAL*delay)/Prescaler_64_);
 		SET_prescaler(Prescaler_64_);
 		wait_ovf();
-		Timer_Stop();
+		TIM0_STOP();
 		
 	}
 	
@@ -213,7 +213,7 @@ void DELAYms(float delay)
 		_TCNT0_= 255-((CLOCK_INTERNAL*delay)/Prescaler_256_);
 		SET_prescaler(Prescaler_256_);
 		wait_ovf();
-		Timer_Stop();
+		TIM0_STOP();
 		
 	}
 	else if((Calculate_max_time(Prescaler_1024_))>=delay)
@@ -222,7 +222,7 @@ void DELAYms(float delay)
 		_TCNT0_= 255-((CLOCK_INTERNAL*delay)/Prescaler_1024_);
 		SET_prescaler(Prescaler_1024_);
 		wait_ovf();
-		Timer_Stop();
+		TIM0_STOP();
 		
 	}
 	else if ((Calculate_max_time(Prescaler_1024_))<delay)

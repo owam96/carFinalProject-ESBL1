@@ -133,7 +133,22 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ECUAL\CAR.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\CAR.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\REMOTE.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\REMOTE.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="includes\definitions.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\macros.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="includes\registers.h">
@@ -173,6 +188,7 @@
     <Folder Include="includes" />
     <Folder Include="MCAL\TIM0" />
     <Folder Include="MCAL\TIM0_PWM" />
+    <Folder Include="ECUAL" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>
