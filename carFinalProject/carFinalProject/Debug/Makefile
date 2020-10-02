@@ -33,6 +33,8 @@ LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
+../ECUAL/CAR \
+../ECUAL/REMOTE \
 ../MCAL \
 ../MCAL/DIO \
 ../includes \
@@ -45,8 +47,8 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../APP/APP.c \
-../ECUAL/CAR.c \
-../ECUAL/REMOTE.c \
+../ECUAL/CAR/CAR.c \
+../ECUAL/REMOTE/REMOTE.c \
 ../main.c \
 ../MCAL/DIO/DIO.c \
 ../MCAL/TIM0/TIM0.c \
@@ -61,8 +63,8 @@ ASM_SRCS +=
 
 OBJS +=  \
 APP/APP.o \
-ECUAL/CAR.o \
-ECUAL/REMOTE.o \
+ECUAL/CAR/CAR.o \
+ECUAL/REMOTE/REMOTE.o \
 main.o \
 MCAL/DIO/DIO.o \
 MCAL/TIM0/TIM0.o \
@@ -70,8 +72,8 @@ MCAL/TIM0_PWM/TIM0_PWM.o
 
 OBJS_AS_ARGS +=  \
 APP/APP.o \
-ECUAL/CAR.o \
-ECUAL/REMOTE.o \
+ECUAL/CAR/CAR.o \
+ECUAL/REMOTE/REMOTE.o \
 main.o \
 MCAL/DIO/DIO.o \
 MCAL/TIM0/TIM0.o \
@@ -79,8 +81,8 @@ MCAL/TIM0_PWM/TIM0_PWM.o
 
 C_DEPS +=  \
 APP/APP.d \
-ECUAL/CAR.d \
-ECUAL/REMOTE.d \
+ECUAL/CAR/CAR.d \
+ECUAL/REMOTE/REMOTE.d \
 main.d \
 MCAL/DIO/DIO.d \
 MCAL/TIM0/TIM0.d \
@@ -88,8 +90,8 @@ MCAL/TIM0_PWM/TIM0_PWM.d
 
 C_DEPS_AS_ARGS +=  \
 APP/APP.d \
-ECUAL/CAR.d \
-ECUAL/REMOTE.d \
+ECUAL/CAR/CAR.d \
+ECUAL/REMOTE/REMOTE.d \
 main.d \
 MCAL/DIO/DIO.d \
 MCAL/TIM0/TIM0.d \
@@ -116,14 +118,14 @@ APP/APP.o: ../APP/APP.c
 	@echo Finished building: $<
 	
 
-ECUAL/CAR.o: ../ECUAL/CAR.c
+ECUAL/CAR/CAR.o: ../ECUAL/CAR/CAR.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.3.300\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-ECUAL/REMOTE.o: ../ECUAL/REMOTE.c
+ECUAL/REMOTE/REMOTE.o: ../ECUAL/REMOTE/REMOTE.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.3.300\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

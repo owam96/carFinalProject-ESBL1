@@ -1,9 +1,8 @@
 
-#include "../includes/definitions.h"
-#include "../MCAL/DIO/DIO.h"
-#include "../MCAL/TIM0/TIM0.h"
-#include "../MCAL/TIM0_PWM/TIM0_PWM.h"
-#include "../ECUAL/CAR.h"
+#include "../../includes/definitions.h"
+#include "../../MCAL/DIO/DIO.h"
+#include "../../MCAL/TIM0_PWM/TIM0_PWM.h"
+#include "../CAR/CAR.h"
 #include "REMOTE.h"
 
 extern float freq;
@@ -27,7 +26,7 @@ DIO_WRITE_BIT(PORT_A, CHNG_SPD_DIR_B, HIGH);
 
 
 void REMOTE_MOVE(){
-	_TIMSK_ |= (1<<_TOIE0_);
+	
 	if(direction == 1){
 		CAR_FORWARD();
 	}
@@ -38,13 +37,13 @@ void REMOTE_MOVE(){
 }
 
 void REMOTE_LEFT(){
-	_TIMSK_ |= (1<<_TOIE0_);
+	
 	CAR_LEFT();
 	TIM0_PWM_start(DUTY_30, freq);
 }
 
 void REMOTE_RIGHT(){
-	_TIMSK_ |= (1<<_TOIE0_);
+	
 	CAR_RIGHT();
 	TIM0_PWM_start(DUTY_30, freq);
 }
