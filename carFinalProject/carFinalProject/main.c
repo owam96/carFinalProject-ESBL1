@@ -14,81 +14,22 @@ volatile uint8_t flag = 0;
 float period;
 float TOFF;
 float TON;
+int direction = 1;
+float freq = 51;
+int duty = DUTY_30;
+int count = 1;
 
 int main(void)
 {
-	
-	int duty = DUTY_30;
-	int direction = 1;
-	float freq = 51;
-	int count = 1;
-	
-	REMOTE_INIT();
-	
-	CAR_INIT();
-	
-	TIM0_PWM_INIT();
+
+	APP_INIT();
 	
 	
     while (1) 
     {
 		
-		while(!DIO_READ_BIT(PORT_A, MOVE_STOP_B)){
-			_TIMSK_ |= (1<<_TOIE0_);
-			if(direction == 1){
-				CAR_FORWARD();
-			}
-			else if(direction == 2){
-				CAR_BACKWARD();
-			}
-			TIM0_PWM_start(duty, freq);
-		}
+		APP_UPDATE();
 		
- 		TIM0_STOP();
-		_TIMSK_ &=~(1<<_TOIE0_);
-		CAR_STOP();
-		
-		while(!DIO_READ_BIT(PORT_A, LEFT_B)){
-			_TIMSK_ |= (1<<_TOIE0_);
-			CAR_LEFT();
-			TIM0_PWM_start(DUTY_30, freq);
-		}
-		
-		TIM0_STOP();
-		_TIMSK_ &=~(1<<_TOIE0_);
-		CAR_STOP();
-		
-		while(!DIO_READ_BIT(PORT_A, RIGHT_B)){
-			_TIMSK_ |= (1<<_TOIE0_);
-			CAR_RIGHT();
-			TIM0_PWM_start(DUTY_30, freq);
-		}
-		
-		TIM0_STOP();
-		_TIMSK_ &=~(1<<_TOIE0_);
-		CAR_STOP();
-		
-		if(!DIO_READ_BIT(PORT_A, CHNG_SPD_DIR_B)){
-			count++;
-			if (count == 1){
-				duty = DUTY_30;
-				direction = FORWARD;
-			}
-			else if(count == 2){
-				duty = DUTY_60;
-				direction = FORWARD;
-			}
-			else if(count == 3){
-				duty = DUTY_90;
-				direction = FORWARD;
-			}
-			else if(count == 4){
-				duty = DUTY_30;
-				direction = BACKWARD;
-				count = 0;
-			}
-			while(!DIO_READ_BIT(PORT_A, CHNG_SPD_DIR_B));
- 		}
     }
 }
 

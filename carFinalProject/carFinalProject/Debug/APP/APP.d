@@ -1,0 +1,8 @@
+APP/APP.d APP/APP.o: ../APP/APP.c ../APP/../MCAL/TIM0_PWM/TIM0_PWM.h \
+ ../APP/../ECUAL/CAR.h ../APP/../ECUAL/REMOTE.h
+
+../APP/../MCAL/TIM0_PWM/TIM0_PWM.h:
+
+../APP/../ECUAL/CAR.h:
+
+../APP/../ECUAL/REMOTE.h:

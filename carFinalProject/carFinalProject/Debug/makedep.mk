@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+APP\APP.c
+
 ECUAL\CAR.c
 
 ECUAL\REMOTE.c

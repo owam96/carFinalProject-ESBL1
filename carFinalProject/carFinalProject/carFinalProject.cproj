@@ -133,6 +133,12 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="APP\APP.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="APP\APP.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="ECUAL\CAR.c">
       <SubType>compile</SubType>
     </Compile>
@@ -189,6 +195,7 @@
     <Folder Include="MCAL\TIM0" />
     <Folder Include="MCAL\TIM0_PWM" />
     <Folder Include="ECUAL" />
+    <Folder Include="APP" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>
