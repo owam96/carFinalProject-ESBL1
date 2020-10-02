@@ -1,7 +1,11 @@
 
 #include "../../includes/definitions.h"
 #include "../../MCAL/DIO/DIO.h"
+<<<<<<< HEAD:carFinalProject/carFinalProject/ECUAL/CAR/CAR.c
 #include "../../MCAL/TIM0_PWM/TIM0_PWM.h"
+=======
+#include "../../MCAL/TIM0/TIM0.h"
+>>>>>>> 3dba2958b7db7affdc2d8367e4bc70c613c6c152:carFinalProject/carFinalProject/ECUAL/CAR.c
 #include "CAR.h"
 
 void CAR_INIT()
@@ -63,6 +67,7 @@ void CAR_STOP(){
 	DIO_WRITE_BIT(PORT_B, EN2 , LOW);
 }
 
+<<<<<<< HEAD:carFinalProject/carFinalProject/ECUAL/CAR/CAR.c
 
 void CAR_MOTOR_ON()
 {	
@@ -75,3 +80,14 @@ void CAR_MOTOR_OFF()
 	DIO_WRITE_BIT(PORT_B, EN2 , LOW);
 }
 
+=======
+void CAR_MOTORS_ON(){
+	DIO_WRITE_BIT(PORT_B, EN1 , HIGH);
+	DIO_WRITE_BIT(PORT_B, EN2 , HIGH);
+}
+
+void CAR_MOTORS_OFF(){
+	DIO_WRITE_BIT(PORT_B, EN1 , LOW);
+	DIO_WRITE_BIT(PORT_B, EN2 , LOW);
+}
+>>>>>>> 3dba2958b7db7affdc2d8367e4bc70c613c6c152:carFinalProject/carFinalProject/ECUAL/CAR.c
