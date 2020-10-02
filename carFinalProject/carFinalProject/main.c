@@ -21,34 +21,9 @@ int main(void)
 	float freq = 51;
 	int count = 1;
 	
-	// Enable pin pull-ups for all connected push-buttons
+	REMOTE_INIT();
 	
-	DIO_INIT_BIT(PORT_A, LEFT_B, INPUT);
-	DIO_INIT_BIT(PORT_A, RIGHT_B, INPUT);
-	DIO_INIT_BIT(PORT_A, MOVE_STOP_B, INPUT);
-	DIO_INIT_BIT(PORT_A, CHNG_SPD_DIR_B, INPUT);
-	
-	DIO_WRITE_BIT(PORT_A, LEFT_B, HIGH);
-	DIO_WRITE_BIT(PORT_A, RIGHT_B, HIGH);
-	DIO_WRITE_BIT(PORT_A, MOVE_STOP_B, HIGH);
-	DIO_WRITE_BIT(PORT_A, CHNG_SPD_DIR_B, HIGH);
-	
-	// Set enable pins as output
-	
-	DIO_INIT_BIT(PORT_B, EN1, OUTPUT);
-	DIO_INIT_BIT(PORT_B, EN2, OUTPUT);
-	
-	// Set direction control pins as output
-	
-	DIO_INIT_BIT(PORT_B, M1_B, OUTPUT);
-	DIO_INIT_BIT(PORT_B, M1_F, OUTPUT);
-	DIO_INIT_BIT(PORT_B, M2_B, OUTPUT);
-	DIO_INIT_BIT(PORT_B, M2_F, OUTPUT);
-	
-	// Set initial direction as forward and initial speed 30%
-	
-	DIO_WRITE_BIT(PORT_B, M1_F, HIGH);
-	DIO_WRITE_BIT(PORT_B, M2_F, HIGH);
+	CAR_INIT();
 	
 	// Enable OVF interrupt and global interrupt
 	
