@@ -1,9 +1,9 @@
 
-#include "../includes/definitions.h"
-#include "../MCAL/DIO/DIO.h"
-#include "../MCAL/TIM0/TIM0.h"
-#include "../MCAL/TIM0_PWM/TIM0_PWM.h"
-#include "../ECUAL/CAR.h"
+#include "../../includes/definitions.h"
+#include "../../MCAL/DIO/DIO.h"
+#include "../../MCAL/TIM0/TIM0.h"
+#include "../../MCAL/TIM0_PWM/TIM0_PWM.h"
+#include "../../ECUAL/CAR/CAR.h"
 #include "REMOTE.h"
 
 extern float freq;

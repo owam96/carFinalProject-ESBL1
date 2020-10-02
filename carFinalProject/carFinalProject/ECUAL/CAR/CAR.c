@@ -1,7 +1,7 @@
 
-#include "../includes/definitions.h"
-#include "../MCAL/DIO/DIO.h"
-#include "../MCAL/TIM0/TIM0.h"
+#include "../../includes/definitions.h"
+#include "../../MCAL/DIO/DIO.h"
+#include "../../MCAL/TIM0/TIM0.h"
 #include "CAR.h"
 
 void CAR_INIT(){
@@ -57,6 +57,16 @@ void CAR_STOP(){
 	
 	TIM0_STOP();
 	_TIMSK_ &=~(1<<_TOIE0_);
+	DIO_WRITE_BIT(PORT_B, EN1 , LOW);
+	DIO_WRITE_BIT(PORT_B, EN2 , LOW);
+}
+
+void CAR_MOTORS_ON(){
+	DIO_WRITE_BIT(PORT_B, EN1 , HIGH);
+	DIO_WRITE_BIT(PORT_B, EN2 , HIGH);
+}
+
+void CAR_MOTORS_OFF(){
 	DIO_WRITE_BIT(PORT_B, EN1 , LOW);
 	DIO_WRITE_BIT(PORT_B, EN2 , LOW);
 }

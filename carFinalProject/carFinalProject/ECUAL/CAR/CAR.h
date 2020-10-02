@@ -16,4 +16,8 @@ void CAR_RIGHT();
 
 void CAR_STOP();
 
+void CAR_MOTORS_ON();
+
+void CAR_MOTORS_OFF();
+
 #endif /* CAR_H_ */

@@ -1,8 +1,8 @@
 
 
 #include "../MCAL/TIM0_PWM/TIM0_PWM.h"
-#include "../ECUAL/CAR.h"
-#include "../ECUAL/REMOTE.h"
+#include "../ECUAL/CAR/CAR.h"
+#include "../ECUAL/REMOTE/REMOTE.h"
 
 
 void APP_INIT(){
