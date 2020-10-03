@@ -3,7 +3,11 @@ carFinalProject.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
+<<<<<<< HEAD
   0 .text         00000dde  00000000  00000000  00000094  2**1
+=======
+  0 .text         00000de0  00000000  00000000  00000094  2**1
+>>>>>>> parent of 621282a... ..
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
   1 .data         0000000a  00800060  00000dde  00000e72  2**0
                   CONTENTS, ALLOC, LOAD, DATA
@@ -28,6 +32,7 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  11 .debug_loc    00000807  00000000  00000000  000048c5  2**0
                   CONTENTS, READONLY, DEBUGGING
+<<<<<<< HEAD
  12 .debug_ranges 00000158  00000000  00000000  000050cc  2**0
 =======
  10 .debug_str    00000678  00000000  00000000  00004a38  2**0
@@ -36,6 +41,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  12 .debug_ranges 00000168  00000000  00000000  00005d08  2**0
 >>>>>>> parent of e4935ad... ..
+=======
+ 12 .debug_ranges 00000158  00000000  00000000  00005084  2**0
+>>>>>>> parent of 621282a... ..
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -52,7 +60,11 @@ Disassembly of section .text:
   20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+<<<<<<< HEAD
   2c:	0c 94 77 02 	jmp	0x4ee	; 0x4ee <__vector_11>
+=======
+  2c:	0c 94 8d 02 	jmp	0x51a	; 0x51a <__vector_11>
+>>>>>>> parent of 621282a... ..
   30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
@@ -75,7 +87,11 @@ Disassembly of section .text:
   60:	10 e0       	ldi	r17, 0x00	; 0
   62:	a0 e6       	ldi	r26, 0x60	; 96
   64:	b0 e0       	ldi	r27, 0x00	; 0
+<<<<<<< HEAD
   66:	ee ed       	ldi	r30, 0xDE	; 222
+=======
+  66:	e0 ee       	ldi	r30, 0xE0	; 224
+>>>>>>> parent of 621282a... ..
   68:	fd e0       	ldi	r31, 0x0D	; 13
   6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
   6c:	05 90       	lpm	r0, Z+
@@ -97,8 +113,13 @@ Disassembly of section .text:
   80:	a7 37       	cpi	r26, 0x77	; 119
   82:	b2 07       	cpc	r27, r18
   84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+<<<<<<< HEAD
   86:	0e 94 72 02 	call	0x4e4	; 0x4e4 <main>
   8a:	0c 94 ed 06 	jmp	0xdda	; 0xdda <_exit>
+=======
+  86:	0e 94 88 02 	call	0x510	; 0x510 <main>
+  8a:	0c 94 ee 06 	jmp	0xddc	; 0xddc <_exit>
+>>>>>>> parent of 621282a... ..
 
 0000008e <__bad_interrupt>:
   8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -114,10 +135,17 @@ Disassembly of section .text:
 void APP_INIT(){
 	
 	TIM0_PWM_INIT();
+<<<<<<< HEAD
   92:	0e 94 da 04 	call	0x9b4	; 0x9b4 <TIM0_PWM_INIT>
 	
 	REMOTE_INIT();
   96:	0e 94 4d 01 	call	0x29a	; 0x29a <REMOTE_INIT>
+=======
+  92:	0e 94 d5 04 	call	0x9aa	; 0x9aa <TIM0_PWM_INIT>
+	
+	REMOTE_INIT();
+  96:	0e 94 6c 01 	call	0x2d8	; 0x2d8 <REMOTE_INIT>
+>>>>>>> parent of 621282a... ..
 	
 	CAR_INIT();
 >>>>>>> parent of e4935ad... ..
@@ -127,63 +155,96 @@ void APP_INIT(){
 000000a0 <APP_UPDATE>:
   a0:	02 c0       	rjmp	.+4      	; 0xa6 <APP_UPDATE+0x6>
 <<<<<<< HEAD
+<<<<<<< HEAD
   a2:	0e 94 ad 01 	call	0x35a	; 0x35a <REMOTE_MOVE>
   a6:	0e 94 50 02 	call	0x4a0	; 0x4a0 <REMOTE_MOVE_PRESSED>
 =======
 		REMOTE_MOVE();
   a2:	0e 94 8e 01 	call	0x31c	; 0x31c <REMOTE_MOVE>
+=======
+		REMOTE_MOVE();
+  a2:	0e 94 ad 01 	call	0x35a	; 0x35a <REMOTE_MOVE>
+>>>>>>> parent of 621282a... ..
 	
 }
 
 void APP_UPDATE(){
 	
 	while(REMOTE_MOVE_PRESSED()){
+<<<<<<< HEAD
   a6:	0e 94 3a 02 	call	0x474	; 0x474 <REMOTE_MOVE_PRESSED>
 >>>>>>> parent of e4935ad... ..
+=======
+  a6:	0e 94 50 02 	call	0x4a0	; 0x4a0 <REMOTE_MOVE_PRESSED>
+>>>>>>> parent of 621282a... ..
   aa:	89 2b       	or	r24, r25
   ac:	d1 f7       	brne	.-12     	; 0xa2 <APP_UPDATE+0x2>
   ae:	0e 94 37 01 	call	0x26e	; 0x26e <CAR_STOP>
   b2:	02 c0       	rjmp	.+4      	; 0xb8 <APP_UPDATE+0x18>
+<<<<<<< HEAD
 <<<<<<< HEAD
   b4:	0e 94 da 01 	call	0x3b4	; 0x3b4 <REMOTE_LEFT>
   b8:	0e 94 5e 02 	call	0x4bc	; 0x4bc <REMOTE_LEFT_PRESSED>
 =======
 		REMOTE_LEFT();
   b4:	0e 94 be 01 	call	0x37c	; 0x37c <REMOTE_LEFT>
+=======
+		REMOTE_LEFT();
+  b4:	0e 94 da 01 	call	0x3b4	; 0x3b4 <REMOTE_LEFT>
+>>>>>>> parent of 621282a... ..
 		REMOTE_MOVE();
 	}
 	
 	CAR_STOP();
 	
 	while(REMOTE_LEFT_PRESSED()){
+<<<<<<< HEAD
   b8:	0e 94 48 02 	call	0x490	; 0x490 <REMOTE_LEFT_PRESSED>
 >>>>>>> parent of e4935ad... ..
+=======
+  b8:	0e 94 5e 02 	call	0x4bc	; 0x4bc <REMOTE_LEFT_PRESSED>
+>>>>>>> parent of 621282a... ..
   bc:	89 2b       	or	r24, r25
   be:	d1 f7       	brne	.-12     	; 0xb4 <APP_UPDATE+0x14>
   c0:	0e 94 37 01 	call	0x26e	; 0x26e <CAR_STOP>
   c4:	02 c0       	rjmp	.+4      	; 0xca <APP_UPDATE+0x2a>
+<<<<<<< HEAD
 <<<<<<< HEAD
   c6:	0e 94 eb 01 	call	0x3d6	; 0x3d6 <REMOTE_RIGHT>
   ca:	0e 94 6c 02 	call	0x4d8	; 0x4d8 <REMOTE_RIGHT_PRESSED>
 =======
 		REMOTE_RIGHT();
   c6:	0e 94 d2 01 	call	0x3a4	; 0x3a4 <REMOTE_RIGHT>
+=======
+		REMOTE_RIGHT();
+  c6:	0e 94 eb 01 	call	0x3d6	; 0x3d6 <REMOTE_RIGHT>
+>>>>>>> parent of 621282a... ..
 		REMOTE_LEFT();
 	}
 	
 	CAR_STOP();
 	
 	while(REMOTE_RIGHT_PRESSED()){
+<<<<<<< HEAD
   ca:	0e 94 56 02 	call	0x4ac	; 0x4ac <REMOTE_RIGHT_PRESSED>
 >>>>>>> parent of e4935ad... ..
+=======
+  ca:	0e 94 6c 02 	call	0x4d8	; 0x4d8 <REMOTE_RIGHT_PRESSED>
+>>>>>>> parent of 621282a... ..
   ce:	89 2b       	or	r24, r25
   d0:	d1 f7       	brne	.-12     	; 0xc6 <APP_UPDATE+0x26>
   d2:	0e 94 37 01 	call	0x26e	; 0x26e <CAR_STOP>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+	
+	if(REMOTE_G_PRESSED()){
+>>>>>>> parent of 621282a... ..
   d6:	0e 94 7a 02 	call	0x4f4	; 0x4f4 <REMOTE_G_PRESSED>
   da:	89 2b       	or	r24, r25
   dc:	11 f0       	breq	.+4      	; 0xe2 <APP_UPDATE+0x42>
   de:	0e 94 fc 01 	call	0x3f8	; 0x3f8 <REMOTE_G>
+<<<<<<< HEAD
 =======
 	
 	if(REMOTE_G_PRESSED()){
@@ -193,6 +254,8 @@ void APP_UPDATE(){
 		REMOTE_G();
   de:	0e 94 e6 01 	call	0x3cc	; 0x3cc <REMOTE_G>
 >>>>>>> parent of e4935ad... ..
+=======
+>>>>>>> parent of 621282a... ..
   e2:	08 95       	ret
 
 000000e4 <CAR_INIT>:
@@ -208,15 +271,24 @@ DIO_INIT_BIT(PORT_B, EN1, OUTPUT);
   ea:	70 e0       	ldi	r23, 0x00	; 0
   ec:	82 e0       	ldi	r24, 0x02	; 2
   ee:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
   f0:	0e 94 d9 02 	call	0x5b2	; 0x5b2 <DIO_INIT_BIT>
 DIO_INIT_BIT(PORT_B, EN2, OUTPUT);
+=======
+  f0:	0e 94 d3 02 	call	0x5a6	; 0x5a6 <DIO_INIT_BIT>
+	DIO_INIT_BIT(PORT_B, EN2, OUTPUT);
+>>>>>>> parent of 621282a... ..
   f4:	41 e0       	ldi	r20, 0x01	; 1
   f6:	50 e0       	ldi	r21, 0x00	; 0
   f8:	62 e0       	ldi	r22, 0x02	; 2
   fa:	70 e0       	ldi	r23, 0x00	; 0
   fc:	82 e0       	ldi	r24, 0x02	; 2
   fe:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  100:	0e 94 d9 02 	call	0x5b2	; 0x5b2 <DIO_INIT_BIT>
+=======
+ 100:	0e 94 d3 02 	call	0x5a6	; 0x5a6 <DIO_INIT_BIT>
+>>>>>>> parent of 621282a... ..
 
 // Set direction control pins as output
 
@@ -227,31 +299,50 @@ DIO_INIT_BIT(PORT_B, M1_B, OUTPUT);
  10a:	70 e0       	ldi	r23, 0x00	; 0
  10c:	82 e0       	ldi	r24, 0x02	; 2
  10e:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  110:	0e 94 d9 02 	call	0x5b2	; 0x5b2 <DIO_INIT_BIT>
 DIO_INIT_BIT(PORT_B, M1_F, OUTPUT);
+=======
+ 110:	0e 94 d3 02 	call	0x5a6	; 0x5a6 <DIO_INIT_BIT>
+	DIO_INIT_BIT(PORT_B, M1_F, OUTPUT);
+>>>>>>> parent of 621282a... ..
  114:	41 e0       	ldi	r20, 0x01	; 1
  116:	50 e0       	ldi	r21, 0x00	; 0
  118:	65 e0       	ldi	r22, 0x05	; 5
  11a:	70 e0       	ldi	r23, 0x00	; 0
  11c:	82 e0       	ldi	r24, 0x02	; 2
  11e:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  120:	0e 94 d9 02 	call	0x5b2	; 0x5b2 <DIO_INIT_BIT>
 DIO_INIT_BIT(PORT_B, M2_B, OUTPUT);
+=======
+ 120:	0e 94 d3 02 	call	0x5a6	; 0x5a6 <DIO_INIT_BIT>
+	DIO_INIT_BIT(PORT_B, M2_B, OUTPUT);
+>>>>>>> parent of 621282a... ..
  124:	41 e0       	ldi	r20, 0x01	; 1
  126:	50 e0       	ldi	r21, 0x00	; 0
  128:	66 e0       	ldi	r22, 0x06	; 6
  12a:	70 e0       	ldi	r23, 0x00	; 0
  12c:	82 e0       	ldi	r24, 0x02	; 2
  12e:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  130:	0e 94 d9 02 	call	0x5b2	; 0x5b2 <DIO_INIT_BIT>
 DIO_INIT_BIT(PORT_B, M2_F, OUTPUT);
+=======
+ 130:	0e 94 d3 02 	call	0x5a6	; 0x5a6 <DIO_INIT_BIT>
+	DIO_INIT_BIT(PORT_B, M2_F, OUTPUT);
+>>>>>>> parent of 621282a... ..
  134:	41 e0       	ldi	r20, 0x01	; 1
  136:	50 e0       	ldi	r21, 0x00	; 0
  138:	67 e0       	ldi	r22, 0x07	; 7
  13a:	70 e0       	ldi	r23, 0x00	; 0
  13c:	82 e0       	ldi	r24, 0x02	; 2
  13e:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  140:	0e 94 d9 02 	call	0x5b2	; 0x5b2 <DIO_INIT_BIT>
+=======
+ 140:	0e 94 d3 02 	call	0x5a6	; 0x5a6 <DIO_INIT_BIT>
+>>>>>>> parent of 621282a... ..
 
 // Set initial direction as forward and initial speed 30%
 
@@ -262,15 +353,24 @@ DIO_WRITE_BIT(PORT_B, M1_F, HIGH);
  14a:	70 e0       	ldi	r23, 0x00	; 0
  14c:	82 e0       	ldi	r24, 0x02	; 2
  14e:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  150:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
 DIO_WRITE_BIT(PORT_B, M2_F, HIGH);
+=======
+ 150:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+	DIO_WRITE_BIT(PORT_B, M2_F, HIGH);
+>>>>>>> parent of 621282a... ..
  154:	41 e0       	ldi	r20, 0x01	; 1
  156:	50 e0       	ldi	r21, 0x00	; 0
  158:	67 e0       	ldi	r22, 0x07	; 7
  15a:	70 e0       	ldi	r23, 0x00	; 0
  15c:	82 e0       	ldi	r24, 0x02	; 2
  15e:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  160:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
+=======
+ 160:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+>>>>>>> parent of 621282a... ..
  164:	08 95       	ret
 
 00000166 <CAR_FORWARD>:
@@ -285,7 +385,11 @@ void CAR_FORWARD(){
  16c:	70 e0       	ldi	r23, 0x00	; 0
  16e:	82 e0       	ldi	r24, 0x02	; 2
  170:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  172:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
+=======
+ 172:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+>>>>>>> parent of 621282a... ..
 	DIO_WRITE_BIT(PORT_B, M1_B, LOW);
  176:	40 e0       	ldi	r20, 0x00	; 0
  178:	50 e0       	ldi	r21, 0x00	; 0
@@ -293,7 +397,11 @@ void CAR_FORWARD(){
  17c:	70 e0       	ldi	r23, 0x00	; 0
  17e:	82 e0       	ldi	r24, 0x02	; 2
  180:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  182:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
+=======
+ 182:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+>>>>>>> parent of 621282a... ..
 	DIO_WRITE_BIT(PORT_B, M2_F, HIGH);
  186:	41 e0       	ldi	r20, 0x01	; 1
  188:	50 e0       	ldi	r21, 0x00	; 0
@@ -301,7 +409,11 @@ void CAR_FORWARD(){
  18c:	70 e0       	ldi	r23, 0x00	; 0
  18e:	82 e0       	ldi	r24, 0x02	; 2
  190:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  192:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
+=======
+ 192:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+>>>>>>> parent of 621282a... ..
 	DIO_WRITE_BIT(PORT_B, M2_B, LOW);
  196:	40 e0       	ldi	r20, 0x00	; 0
  198:	50 e0       	ldi	r21, 0x00	; 0
@@ -309,7 +421,11 @@ void CAR_FORWARD(){
  19c:	70 e0       	ldi	r23, 0x00	; 0
  19e:	82 e0       	ldi	r24, 0x02	; 2
  1a0:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  1a2:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
+=======
+ 1a2:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+>>>>>>> parent of 621282a... ..
  1a6:	08 95       	ret
 
 000001a8 <CAR_BACKWARD>:
@@ -323,7 +439,11 @@ void CAR_BACKWARD(){
  1ae:	70 e0       	ldi	r23, 0x00	; 0
  1b0:	82 e0       	ldi	r24, 0x02	; 2
  1b2:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  1b4:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
+=======
+ 1b4:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+>>>>>>> parent of 621282a... ..
 	DIO_WRITE_BIT(PORT_B, M1_B, HIGH);
  1b8:	41 e0       	ldi	r20, 0x01	; 1
  1ba:	50 e0       	ldi	r21, 0x00	; 0
@@ -331,7 +451,11 @@ void CAR_BACKWARD(){
  1be:	70 e0       	ldi	r23, 0x00	; 0
  1c0:	82 e0       	ldi	r24, 0x02	; 2
  1c2:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  1c4:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
+=======
+ 1c4:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+>>>>>>> parent of 621282a... ..
 	DIO_WRITE_BIT(PORT_B, M2_F, LOW);
  1c8:	40 e0       	ldi	r20, 0x00	; 0
  1ca:	50 e0       	ldi	r21, 0x00	; 0
@@ -339,7 +463,11 @@ void CAR_BACKWARD(){
  1ce:	70 e0       	ldi	r23, 0x00	; 0
  1d0:	82 e0       	ldi	r24, 0x02	; 2
  1d2:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  1d4:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
+=======
+ 1d4:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+>>>>>>> parent of 621282a... ..
 	DIO_WRITE_BIT(PORT_B, M2_B, HIGH);
  1d8:	41 e0       	ldi	r20, 0x01	; 1
  1da:	50 e0       	ldi	r21, 0x00	; 0
@@ -347,7 +475,11 @@ void CAR_BACKWARD(){
  1de:	70 e0       	ldi	r23, 0x00	; 0
  1e0:	82 e0       	ldi	r24, 0x02	; 2
  1e2:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  1e4:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
+=======
+ 1e4:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+>>>>>>> parent of 621282a... ..
  1e8:	08 95       	ret
 
 000001ea <CAR_LEFT>:
@@ -361,7 +493,11 @@ void CAR_LEFT(){
  1f0:	70 e0       	ldi	r23, 0x00	; 0
  1f2:	82 e0       	ldi	r24, 0x02	; 2
  1f4:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  1f6:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
+=======
+ 1f6:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+>>>>>>> parent of 621282a... ..
 	DIO_WRITE_BIT(PORT_B, M1_B, LOW);
  1fa:	40 e0       	ldi	r20, 0x00	; 0
  1fc:	50 e0       	ldi	r21, 0x00	; 0
@@ -369,7 +505,11 @@ void CAR_LEFT(){
  200:	70 e0       	ldi	r23, 0x00	; 0
  202:	82 e0       	ldi	r24, 0x02	; 2
  204:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  206:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
+=======
+ 206:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+>>>>>>> parent of 621282a... ..
 	DIO_WRITE_BIT(PORT_B, M2_F, LOW);
  20a:	40 e0       	ldi	r20, 0x00	; 0
  20c:	50 e0       	ldi	r21, 0x00	; 0
@@ -377,7 +517,11 @@ void CAR_LEFT(){
  210:	70 e0       	ldi	r23, 0x00	; 0
  212:	82 e0       	ldi	r24, 0x02	; 2
  214:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  216:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
+=======
+ 216:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+>>>>>>> parent of 621282a... ..
 	DIO_WRITE_BIT(PORT_B, M2_B, HIGH);
  21a:	41 e0       	ldi	r20, 0x01	; 1
  21c:	50 e0       	ldi	r21, 0x00	; 0
@@ -385,7 +529,11 @@ void CAR_LEFT(){
  220:	70 e0       	ldi	r23, 0x00	; 0
  222:	82 e0       	ldi	r24, 0x02	; 2
  224:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  226:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
+=======
+ 226:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+>>>>>>> parent of 621282a... ..
  22a:	08 95       	ret
 
 0000022c <CAR_RIGHT>:
@@ -399,7 +547,11 @@ void CAR_RIGHT(){
  232:	70 e0       	ldi	r23, 0x00	; 0
  234:	82 e0       	ldi	r24, 0x02	; 2
  236:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  238:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
+=======
+ 238:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+>>>>>>> parent of 621282a... ..
 	DIO_WRITE_BIT(PORT_B, M1_B, HIGH);
  23c:	41 e0       	ldi	r20, 0x01	; 1
  23e:	50 e0       	ldi	r21, 0x00	; 0
@@ -407,7 +559,11 @@ void CAR_RIGHT(){
  242:	70 e0       	ldi	r23, 0x00	; 0
  244:	82 e0       	ldi	r24, 0x02	; 2
  246:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  248:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
+=======
+ 248:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+>>>>>>> parent of 621282a... ..
 	DIO_WRITE_BIT(PORT_B, M2_F, HIGH);
  24c:	41 e0       	ldi	r20, 0x01	; 1
  24e:	50 e0       	ldi	r21, 0x00	; 0
@@ -415,7 +571,11 @@ void CAR_RIGHT(){
  252:	70 e0       	ldi	r23, 0x00	; 0
  254:	82 e0       	ldi	r24, 0x02	; 2
  256:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  258:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
+=======
+ 258:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+>>>>>>> parent of 621282a... ..
 	DIO_WRITE_BIT(PORT_B, M2_B, LOW);
  25c:	40 e0       	ldi	r20, 0x00	; 0
  25e:	50 e0       	ldi	r21, 0x00	; 0
@@ -423,7 +583,11 @@ void CAR_RIGHT(){
  262:	70 e0       	ldi	r23, 0x00	; 0
  264:	82 e0       	ldi	r24, 0x02	; 2
  266:	90 e0       	ldi	r25, 0x00	; 0
+<<<<<<< HEAD
  268:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
+=======
+ 268:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+>>>>>>> parent of 621282a... ..
  26c:	08 95       	ret
 
 0000026e <CAR_STOP>:
@@ -431,7 +595,6 @@ void CAR_RIGHT(){
 
 void CAR_STOP(){
 	
-<<<<<<< HEAD
 	PWM_STOP();
  26e:	0e 94 df 04 	call	0x9be	; 0x9be <PWM_STOP>
 	DIO_WRITE_BIT(PORT_B, EN1 , LOW);
@@ -478,6 +641,7 @@ void CAR_MOTORS_ON(){
 000002b6 <CAR_MOTORS_OFF>:
 }
 
+<<<<<<< HEAD
 void CAR_MOTORS_OFF(){
 =======
 	TIM0_STOP();
@@ -577,12 +741,127 @@ DIO_WRITE_BIT(PORT_A, CHNG_SPD_DIR_B, HIGH);
  314:	90 e0       	ldi	r25, 0x00	; 0
  316:	0e 94 60 03 	call	0x6c0	; 0x6c0 <DIO_WRITE_BIT>
  31a:	08 95       	ret
+=======
+// Enable pin pull-ups for all connected push-buttons
+
+DIO_INIT_BIT(PORT_A, LEFT_B, INPUT);
+ 2d8:	40 e0       	ldi	r20, 0x00	; 0
+ 2da:	50 e0       	ldi	r21, 0x00	; 0
+ 2dc:	61 e0       	ldi	r22, 0x01	; 1
+ 2de:	70 e0       	ldi	r23, 0x00	; 0
+ 2e0:	81 e0       	ldi	r24, 0x01	; 1
+ 2e2:	90 e0       	ldi	r25, 0x00	; 0
+ 2e4:	0e 94 d3 02 	call	0x5a6	; 0x5a6 <DIO_INIT_BIT>
+DIO_INIT_BIT(PORT_A, RIGHT_B, INPUT);
+ 2e8:	40 e0       	ldi	r20, 0x00	; 0
+ 2ea:	50 e0       	ldi	r21, 0x00	; 0
+ 2ec:	63 e0       	ldi	r22, 0x03	; 3
+ 2ee:	70 e0       	ldi	r23, 0x00	; 0
+ 2f0:	81 e0       	ldi	r24, 0x01	; 1
+ 2f2:	90 e0       	ldi	r25, 0x00	; 0
+ 2f4:	0e 94 d3 02 	call	0x5a6	; 0x5a6 <DIO_INIT_BIT>
+DIO_INIT_BIT(PORT_A, MOVE_STOP_B, INPUT);
+ 2f8:	40 e0       	ldi	r20, 0x00	; 0
+ 2fa:	50 e0       	ldi	r21, 0x00	; 0
+ 2fc:	65 e0       	ldi	r22, 0x05	; 5
+ 2fe:	70 e0       	ldi	r23, 0x00	; 0
+ 300:	81 e0       	ldi	r24, 0x01	; 1
+ 302:	90 e0       	ldi	r25, 0x00	; 0
+ 304:	0e 94 d3 02 	call	0x5a6	; 0x5a6 <DIO_INIT_BIT>
+DIO_INIT_BIT(PORT_A, CHNG_SPD_DIR_B, INPUT);
+ 308:	40 e0       	ldi	r20, 0x00	; 0
+ 30a:	50 e0       	ldi	r21, 0x00	; 0
+ 30c:	67 e0       	ldi	r22, 0x07	; 7
+ 30e:	70 e0       	ldi	r23, 0x00	; 0
+ 310:	81 e0       	ldi	r24, 0x01	; 1
+ 312:	90 e0       	ldi	r25, 0x00	; 0
+ 314:	0e 94 d3 02 	call	0x5a6	; 0x5a6 <DIO_INIT_BIT>
+
+DIO_WRITE_BIT(PORT_A, LEFT_B, HIGH);
+ 318:	41 e0       	ldi	r20, 0x01	; 1
+ 31a:	50 e0       	ldi	r21, 0x00	; 0
+ 31c:	61 e0       	ldi	r22, 0x01	; 1
+ 31e:	70 e0       	ldi	r23, 0x00	; 0
+ 320:	81 e0       	ldi	r24, 0x01	; 1
+ 322:	90 e0       	ldi	r25, 0x00	; 0
+ 324:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+DIO_WRITE_BIT(PORT_A, RIGHT_B, HIGH);
+ 328:	41 e0       	ldi	r20, 0x01	; 1
+ 32a:	50 e0       	ldi	r21, 0x00	; 0
+ 32c:	63 e0       	ldi	r22, 0x03	; 3
+ 32e:	70 e0       	ldi	r23, 0x00	; 0
+ 330:	81 e0       	ldi	r24, 0x01	; 1
+ 332:	90 e0       	ldi	r25, 0x00	; 0
+ 334:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+DIO_WRITE_BIT(PORT_A, MOVE_STOP_B, HIGH);
+ 338:	41 e0       	ldi	r20, 0x01	; 1
+ 33a:	50 e0       	ldi	r21, 0x00	; 0
+ 33c:	65 e0       	ldi	r22, 0x05	; 5
+ 33e:	70 e0       	ldi	r23, 0x00	; 0
+ 340:	81 e0       	ldi	r24, 0x01	; 1
+ 342:	90 e0       	ldi	r25, 0x00	; 0
+ 344:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+DIO_WRITE_BIT(PORT_A, CHNG_SPD_DIR_B, HIGH);
+ 348:	41 e0       	ldi	r20, 0x01	; 1
+ 34a:	50 e0       	ldi	r21, 0x00	; 0
+ 34c:	67 e0       	ldi	r22, 0x07	; 7
+ 34e:	70 e0       	ldi	r23, 0x00	; 0
+ 350:	81 e0       	ldi	r24, 0x01	; 1
+ 352:	90 e0       	ldi	r25, 0x00	; 0
+ 354:	0e 94 5a 03 	call	0x6b4	; 0x6b4 <DIO_WRITE_BIT>
+ 358:	08 95       	ret
+
+0000035a <REMOTE_MOVE>:
+
+}
+>>>>>>> parent of 621282a... ..
 
 0000031c <REMOTE_MOVE>:
 
+<<<<<<< HEAD
+=======
+void REMOTE_MOVE(){
+ 35a:	cf 92       	push	r12
+ 35c:	df 92       	push	r13
+ 35e:	ef 92       	push	r14
+ 360:	ff 92       	push	r15
+	
+	if(direction == 1){
+ 362:	80 91 68 00 	lds	r24, 0x0068	; 0x800068 <direction>
+ 366:	90 91 69 00 	lds	r25, 0x0069	; 0x800069 <direction+0x1>
+ 36a:	81 30       	cpi	r24, 0x01	; 1
+ 36c:	91 05       	cpc	r25, r1
+ 36e:	19 f4       	brne	.+6      	; 0x376 <REMOTE_MOVE+0x1c>
+		CAR_FORWARD();
+ 370:	0e 94 b3 00 	call	0x166	; 0x166 <CAR_FORWARD>
+ 374:	04 c0       	rjmp	.+8      	; 0x37e <REMOTE_MOVE+0x24>
+	}
+	else if(direction == 2){
+ 376:	02 97       	sbiw	r24, 0x02	; 2
+ 378:	11 f4       	brne	.+4      	; 0x37e <REMOTE_MOVE+0x24>
+		CAR_BACKWARD();
+ 37a:	0e 94 d4 00 	call	0x1a8	; 0x1a8 <CAR_BACKWARD>
+	}
+	TIM0_PWM_start(duty, freq);
+ 37e:	c0 90 64 00 	lds	r12, 0x0064	; 0x800064 <freq>
+ 382:	d0 90 65 00 	lds	r13, 0x0065	; 0x800065 <freq+0x1>
+ 386:	e0 90 66 00 	lds	r14, 0x0066	; 0x800066 <freq+0x2>
+ 38a:	f0 90 67 00 	lds	r15, 0x0067	; 0x800067 <freq+0x3>
+ 38e:	60 91 62 00 	lds	r22, 0x0062	; 0x800062 <duty>
+ 392:	70 91 63 00 	lds	r23, 0x0063	; 0x800063 <duty+0x1>
+ 396:	07 2e       	mov	r0, r23
+ 398:	00 0c       	add	r0, r0
+ 39a:	88 0b       	sbc	r24, r24
+ 39c:	99 0b       	sbc	r25, r25
+ 39e:	0e 94 f5 05 	call	0xbea	; 0xbea <__floatsisf>
+ 3a2:	a7 01       	movw	r20, r14
+ 3a4:	96 01       	movw	r18, r12
+ 3a6:	0e 94 61 04 	call	0x8c2	; 0x8c2 <TIM0_PWM_start>
+>>>>>>> parent of 621282a... ..
 }
 
 
+<<<<<<< HEAD
 void REMOTE_MOVE(){
  31c:	cf 92       	push	r12
  31e:	df 92       	push	r13
@@ -674,10 +953,49 @@ void REMOTE_RIGHT(){
  3ca:	08 95       	ret
 
 000003cc <REMOTE_G>:
+=======
+void REMOTE_LEFT(){
+	
+	CAR_LEFT();
+ 3b4:	0e 94 f5 00 	call	0x1ea	; 0x1ea <CAR_LEFT>
+	TIM0_PWM_start(DUTY_30, freq);
+ 3b8:	20 91 64 00 	lds	r18, 0x0064	; 0x800064 <freq>
+ 3bc:	30 91 65 00 	lds	r19, 0x0065	; 0x800065 <freq+0x1>
+ 3c0:	40 91 66 00 	lds	r20, 0x0066	; 0x800066 <freq+0x2>
+ 3c4:	50 91 67 00 	lds	r21, 0x0067	; 0x800067 <freq+0x3>
+ 3c8:	60 e0       	ldi	r22, 0x00	; 0
+ 3ca:	70 e0       	ldi	r23, 0x00	; 0
+ 3cc:	80 ef       	ldi	r24, 0xF0	; 240
+ 3ce:	91 e4       	ldi	r25, 0x41	; 65
+ 3d0:	0e 94 61 04 	call	0x8c2	; 0x8c2 <TIM0_PWM_start>
+ 3d4:	08 95       	ret
+
+000003d6 <REMOTE_RIGHT>:
+}
+
+void REMOTE_RIGHT(){
+	
+	CAR_RIGHT();
+ 3d6:	0e 94 16 01 	call	0x22c	; 0x22c <CAR_RIGHT>
+	TIM0_PWM_start(DUTY_30, freq);
+ 3da:	20 91 64 00 	lds	r18, 0x0064	; 0x800064 <freq>
+ 3de:	30 91 65 00 	lds	r19, 0x0065	; 0x800065 <freq+0x1>
+ 3e2:	40 91 66 00 	lds	r20, 0x0066	; 0x800066 <freq+0x2>
+ 3e6:	50 91 67 00 	lds	r21, 0x0067	; 0x800067 <freq+0x3>
+ 3ea:	60 e0       	ldi	r22, 0x00	; 0
+ 3ec:	70 e0       	ldi	r23, 0x00	; 0
+ 3ee:	80 ef       	ldi	r24, 0xF0	; 240
+ 3f0:	91 e4       	ldi	r25, 0x41	; 65
+ 3f2:	0e 94 61 04 	call	0x8c2	; 0x8c2 <TIM0_PWM_start>
+ 3f6:	08 95       	ret
+
+000003f8 <REMOTE_G>:
+>>>>>>> parent of 621282a... ..
 }
 
 void REMOTE_G(){
 	count++;
+<<<<<<< HEAD
 <<<<<<< HEAD
  3f8:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__data_start>
  3fc:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__data_start+0x1>
@@ -848,29 +1166,200 @@ int REMOTE_G_PRESSED(){
  4e2:	08 95       	ret
 
 000004e4 <main>:
+=======
+ 3f8:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 3fc:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 400:	01 96       	adiw	r24, 0x01	; 1
+ 402:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 406:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+	if (count == 1){
+ 40a:	81 30       	cpi	r24, 0x01	; 1
+ 40c:	91 05       	cpc	r25, r1
+ 40e:	69 f4       	brne	.+26     	; 0x42a <__LOCK_REGION_LENGTH__+0x2a>
+		duty = DUTY_30;
+ 410:	8e e1       	ldi	r24, 0x1E	; 30
+ 412:	90 e0       	ldi	r25, 0x00	; 0
+ 414:	90 93 63 00 	sts	0x0063, r25	; 0x800063 <duty+0x1>
+ 418:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <duty>
+		direction = FORWARD;
+ 41c:	81 e0       	ldi	r24, 0x01	; 1
+ 41e:	90 e0       	ldi	r25, 0x00	; 0
+ 420:	90 93 69 00 	sts	0x0069, r25	; 0x800069 <direction+0x1>
+ 424:	80 93 68 00 	sts	0x0068, r24	; 0x800068 <direction>
+ 428:	32 c0       	rjmp	.+100    	; 0x48e <__LOCK_REGION_LENGTH__+0x8e>
+	}
+	else if(count == 2){
+ 42a:	82 30       	cpi	r24, 0x02	; 2
+ 42c:	91 05       	cpc	r25, r1
+ 42e:	69 f4       	brne	.+26     	; 0x44a <__LOCK_REGION_LENGTH__+0x4a>
+		duty = DUTY_60;
+ 430:	8c e3       	ldi	r24, 0x3C	; 60
+ 432:	90 e0       	ldi	r25, 0x00	; 0
+ 434:	90 93 63 00 	sts	0x0063, r25	; 0x800063 <duty+0x1>
+ 438:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <duty>
+		direction = FORWARD;
+ 43c:	81 e0       	ldi	r24, 0x01	; 1
+ 43e:	90 e0       	ldi	r25, 0x00	; 0
+ 440:	90 93 69 00 	sts	0x0069, r25	; 0x800069 <direction+0x1>
+ 444:	80 93 68 00 	sts	0x0068, r24	; 0x800068 <direction>
+ 448:	22 c0       	rjmp	.+68     	; 0x48e <__LOCK_REGION_LENGTH__+0x8e>
+	}
+	else if(count == 3){
+ 44a:	83 30       	cpi	r24, 0x03	; 3
+ 44c:	91 05       	cpc	r25, r1
+ 44e:	69 f4       	brne	.+26     	; 0x46a <__LOCK_REGION_LENGTH__+0x6a>
+		duty = DUTY_90;
+ 450:	8a e5       	ldi	r24, 0x5A	; 90
+ 452:	90 e0       	ldi	r25, 0x00	; 0
+ 454:	90 93 63 00 	sts	0x0063, r25	; 0x800063 <duty+0x1>
+ 458:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <duty>
+		direction = FORWARD;
+ 45c:	81 e0       	ldi	r24, 0x01	; 1
+ 45e:	90 e0       	ldi	r25, 0x00	; 0
+ 460:	90 93 69 00 	sts	0x0069, r25	; 0x800069 <direction+0x1>
+ 464:	80 93 68 00 	sts	0x0068, r24	; 0x800068 <direction>
+ 468:	12 c0       	rjmp	.+36     	; 0x48e <__LOCK_REGION_LENGTH__+0x8e>
+	}
+	else if(count == 4){
+ 46a:	04 97       	sbiw	r24, 0x04	; 4
+ 46c:	81 f4       	brne	.+32     	; 0x48e <__LOCK_REGION_LENGTH__+0x8e>
+		duty = DUTY_30;
+ 46e:	8e e1       	ldi	r24, 0x1E	; 30
+ 470:	90 e0       	ldi	r25, 0x00	; 0
+ 472:	90 93 63 00 	sts	0x0063, r25	; 0x800063 <duty+0x1>
+ 476:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <duty>
+		direction = BACKWARD;
+ 47a:	82 e0       	ldi	r24, 0x02	; 2
+ 47c:	90 e0       	ldi	r25, 0x00	; 0
+ 47e:	90 93 69 00 	sts	0x0069, r25	; 0x800069 <direction+0x1>
+ 482:	80 93 68 00 	sts	0x0068, r24	; 0x800068 <direction>
+		count = 0;
+ 486:	10 92 61 00 	sts	0x0061, r1	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 48a:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <__DATA_REGION_ORIGIN__>
+	}
+	while(!DIO_READ_BIT(PORT_A, CHNG_SPD_DIR_B));
+ 48e:	67 e0       	ldi	r22, 0x07	; 7
+ 490:	70 e0       	ldi	r23, 0x00	; 0
+ 492:	81 e0       	ldi	r24, 0x01	; 1
+ 494:	90 e0       	ldi	r25, 0x00	; 0
+ 496:	0e 94 e1 03 	call	0x7c2	; 0x7c2 <DIO_READ_BIT>
+ 49a:	88 23       	and	r24, r24
+ 49c:	c1 f3       	breq	.-16     	; 0x48e <__LOCK_REGION_LENGTH__+0x8e>
+}
+ 49e:	08 95       	ret
+
+000004a0 <REMOTE_MOVE_PRESSED>:
+
+int REMOTE_MOVE_PRESSED(){
+	return !DIO_READ_BIT(PORT_A, MOVE_STOP_B);
+ 4a0:	65 e0       	ldi	r22, 0x05	; 5
+ 4a2:	70 e0       	ldi	r23, 0x00	; 0
+ 4a4:	81 e0       	ldi	r24, 0x01	; 1
+ 4a6:	90 e0       	ldi	r25, 0x00	; 0
+ 4a8:	0e 94 e1 03 	call	0x7c2	; 0x7c2 <DIO_READ_BIT>
+ 4ac:	21 e0       	ldi	r18, 0x01	; 1
+ 4ae:	30 e0       	ldi	r19, 0x00	; 0
+ 4b0:	88 23       	and	r24, r24
+ 4b2:	11 f0       	breq	.+4      	; 0x4b8 <REMOTE_MOVE_PRESSED+0x18>
+ 4b4:	20 e0       	ldi	r18, 0x00	; 0
+ 4b6:	30 e0       	ldi	r19, 0x00	; 0
+}
+ 4b8:	c9 01       	movw	r24, r18
+ 4ba:	08 95       	ret
+
+000004bc <REMOTE_LEFT_PRESSED>:
+
+int REMOTE_LEFT_PRESSED(){
+	return !DIO_READ_BIT(PORT_A, LEFT_B);
+ 4bc:	61 e0       	ldi	r22, 0x01	; 1
+ 4be:	70 e0       	ldi	r23, 0x00	; 0
+ 4c0:	81 e0       	ldi	r24, 0x01	; 1
+ 4c2:	90 e0       	ldi	r25, 0x00	; 0
+ 4c4:	0e 94 e1 03 	call	0x7c2	; 0x7c2 <DIO_READ_BIT>
+ 4c8:	21 e0       	ldi	r18, 0x01	; 1
+ 4ca:	30 e0       	ldi	r19, 0x00	; 0
+ 4cc:	88 23       	and	r24, r24
+ 4ce:	11 f0       	breq	.+4      	; 0x4d4 <REMOTE_LEFT_PRESSED+0x18>
+ 4d0:	20 e0       	ldi	r18, 0x00	; 0
+ 4d2:	30 e0       	ldi	r19, 0x00	; 0
+}
+ 4d4:	c9 01       	movw	r24, r18
+ 4d6:	08 95       	ret
+
+000004d8 <REMOTE_RIGHT_PRESSED>:
+
+int REMOTE_RIGHT_PRESSED(){
+	return !DIO_READ_BIT(PORT_A, RIGHT_B);
+ 4d8:	63 e0       	ldi	r22, 0x03	; 3
+ 4da:	70 e0       	ldi	r23, 0x00	; 0
+ 4dc:	81 e0       	ldi	r24, 0x01	; 1
+ 4de:	90 e0       	ldi	r25, 0x00	; 0
+ 4e0:	0e 94 e1 03 	call	0x7c2	; 0x7c2 <DIO_READ_BIT>
+ 4e4:	21 e0       	ldi	r18, 0x01	; 1
+ 4e6:	30 e0       	ldi	r19, 0x00	; 0
+ 4e8:	88 23       	and	r24, r24
+ 4ea:	11 f0       	breq	.+4      	; 0x4f0 <REMOTE_RIGHT_PRESSED+0x18>
+ 4ec:	20 e0       	ldi	r18, 0x00	; 0
+ 4ee:	30 e0       	ldi	r19, 0x00	; 0
+}
+ 4f0:	c9 01       	movw	r24, r18
+ 4f2:	08 95       	ret
+
+000004f4 <REMOTE_G_PRESSED>:
+
+int REMOTE_G_PRESSED(){
+	return !DIO_READ_BIT(PORT_A, CHNG_SPD_DIR_B);
+ 4f4:	67 e0       	ldi	r22, 0x07	; 7
+ 4f6:	70 e0       	ldi	r23, 0x00	; 0
+ 4f8:	81 e0       	ldi	r24, 0x01	; 1
+ 4fa:	90 e0       	ldi	r25, 0x00	; 0
+ 4fc:	0e 94 e1 03 	call	0x7c2	; 0x7c2 <DIO_READ_BIT>
+ 500:	21 e0       	ldi	r18, 0x01	; 1
+ 502:	30 e0       	ldi	r19, 0x00	; 0
+ 504:	88 23       	and	r24, r24
+ 506:	11 f0       	breq	.+4      	; 0x50c <REMOTE_G_PRESSED+0x18>
+ 508:	20 e0       	ldi	r18, 0x00	; 0
+ 50a:	30 e0       	ldi	r19, 0x00	; 0
+ 50c:	c9 01       	movw	r24, r18
+ 50e:	08 95       	ret
+
+00000510 <main>:
+>>>>>>> parent of 621282a... ..
 int count = 1;
 
 int main(void)
 {
 
 	APP_INIT();
+<<<<<<< HEAD
  4e4:	0e 94 49 00 	call	0x92	; 0x92 <APP_INIT>
+=======
+ 510:	0e 94 49 00 	call	0x92	; 0x92 <APP_INIT>
+>>>>>>> parent of 621282a... ..
 	
 	
     while (1) 
     {
 		
 		APP_UPDATE();
+<<<<<<< HEAD
  4e8:	0e 94 50 00 	call	0xa0	; 0xa0 <APP_UPDATE>
  4ec:	fd cf       	rjmp	.-6      	; 0x4e8 <main+0x4>
 
 000004ee <__vector_11>:
+=======
+ 514:	0e 94 50 00 	call	0xa0	; 0xa0 <APP_UPDATE>
+ 518:	fd cf       	rjmp	.-6      	; 0x514 <main+0x4>
+
+0000051a <__vector_11>:
+>>>>>>> parent of 621282a... ..
 		
     }
 }
 
 void __vector_11 (void)
 {
+<<<<<<< HEAD
  4ee:	1f 92       	push	r1
  4f0:	0f 92       	push	r0
  4f2:	0f b6       	in	r0, 0x3f	; 63
@@ -888,6 +1377,25 @@ void __vector_11 (void)
  50a:	bf 93       	push	r27
  50c:	ef 93       	push	r30
  50e:	ff 93       	push	r31
+=======
+ 51a:	1f 92       	push	r1
+ 51c:	0f 92       	push	r0
+ 51e:	0f b6       	in	r0, 0x3f	; 63
+ 520:	0f 92       	push	r0
+ 522:	11 24       	eor	r1, r1
+ 524:	2f 93       	push	r18
+ 526:	3f 93       	push	r19
+ 528:	4f 93       	push	r20
+ 52a:	5f 93       	push	r21
+ 52c:	6f 93       	push	r22
+ 52e:	7f 93       	push	r23
+ 530:	8f 93       	push	r24
+ 532:	9f 93       	push	r25
+ 534:	af 93       	push	r26
+ 536:	bf 93       	push	r27
+ 538:	ef 93       	push	r30
+ 53a:	ff 93       	push	r31
+>>>>>>> parent of 621282a... ..
 	if (flag==0)
  510:	80 91 6a 00 	lds	r24, 0x006A	; 0x80006a <__data_end>
  514:	81 11       	cpse	r24, r1
@@ -2394,6 +2902,7 @@ void __vector_11 (void)
 
 00000dde <__stop_program>:
  dde:	ff cf       	rjmp	.-2      	; 0xdde <__stop_program>
+<<<<<<< HEAD
 =======
 00000886 <TIM0_STOP>:
  886:	88 b7       	in	r24, 0x38	; 56
@@ -3120,3 +3629,5 @@ void TIM0_PWM_INIT(){
 00000ddc <__stop_program>:
  ddc:	ff cf       	rjmp	.-2      	; 0xddc <__stop_program>
 >>>>>>> parent of e4935ad... ..
+=======
+>>>>>>> parent of 621282a... ..

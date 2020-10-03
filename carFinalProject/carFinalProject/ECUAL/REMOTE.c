@@ -1,9 +1,16 @@
 
+<<<<<<< HEAD:carFinalProject/carFinalProject/ECUAL/REMOTE.c
 #include "../includes/definitions.h"
 #include "../MCAL/DIO/DIO.h"
 #include "../MCAL/TIM0/TIM0.h"
 #include "../MCAL/TIM0_PWM/TIM0_PWM.h"
 #include "../ECUAL/CAR.h"
+=======
+#include "../../includes/definitions.h"
+#include "../../MCAL/DIO/DIO.h"
+#include "../../MCAL/TIM0_PWM/TIM0_PWM.h"
+#include "../CAR/CAR.h"
+>>>>>>> parent of 621282a... ..:carFinalProject/carFinalProject/ECUAL/REMOTE/REMOTE.c
 #include "REMOTE.h"
 
 extern float freq;
