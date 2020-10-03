@@ -154,9 +154,6 @@
     <Compile Include="includes\definitions.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="includes\macros.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="includes\registers.h">
       <SubType>compile</SubType>
     </Compile>

@@ -1,14 +1,8 @@
 
 #include "../../includes/definitions.h"
 #include "../../MCAL/DIO/DIO.h"
-<<<<<<< HEAD:carFinalProject/carFinalProject/ECUAL/REMOTE/REMOTE.c
 #include "../../MCAL/TIM0_PWM/TIM0_PWM.h"
 #include "../CAR/CAR.h"
-=======
-#include "../../MCAL/TIM0/TIM0.h"
-#include "../../MCAL/TIM0_PWM/TIM0_PWM.h"
-#include "../../ECUAL/CAR/CAR.h"
->>>>>>> 3dba2958b7db7affdc2d8367e4bc70c613c6c152:carFinalProject/carFinalProject/ECUAL/REMOTE.c
 #include "REMOTE.h"
 
 extern float freq;
