@@ -4,9 +4,9 @@
 
 APP\APP.c
 
-ECUAL\CAR\CAR.c
+ECUAL\CAR.c
 
-ECUAL\REMOTE\REMOTE.c
+ECUAL\REMOTE.c
 
 main.c
 

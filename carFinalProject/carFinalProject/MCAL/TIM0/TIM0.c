@@ -5,10 +5,12 @@
  * Author : Esraa
 
  */ 
-
+#include "../../MCAL/TIM0/interrupt.h"
 #include "../../includes/types.h"
+#include "../../MCAL/DIO/DIO.h"
 #include "../../MCAL/TIM0/TIM0.h"
 
+#define  CLOCK_INTERNAL 1000000 // 1MHZ
 /************************************************************************/
 /*
 max time 0.000256 >> no prescaler
@@ -23,8 +25,14 @@ clock time = 1/prescaler
 
 
 
-#define  CLOCK_INTERNAL 1000000 // 1MHZ
 
+float   max_freq;
+float   max_time;
+float  new_freq ;
+uint32_t total_ovrf=0;
+float time_1_ovrf=0;
+float n_f =0;
+float time_1_tick=0;
 
 
 void SET_prescaler( uint16_t pre)
@@ -56,19 +64,72 @@ void SET_prescaler( uint16_t pre)
 	}
 }
 
+float Calculate_max_time (float PREASCLER)
+{
+	float result;
+	new_freq = CLOCK_INTERNAL/PREASCLER;
+	max_time = (1/new_freq)*256;
+	result = max_time;	
+	return result;
+	
+}
+/*******************************************************/
+
+uint16_t calculte_total_ovf(float DELAY)
+{
+
+	time_1_ovrf=Calculate_max_time (Prescaler_1024_);//
+	total_ovrf=DELAY/time_1_ovrf;//
+	return total_ovrf;
+}
+uint8_t calculat_num_ticks(float DELAY)
+{	  
+	float total_time_ovrf;
+	float TICKs;
+	total_time_ovrf=total_ovrf*time_1_ovrf;
+	TICKs=DELAY-total_time_ovrf;
+	TICKs=TICKs/time_1_tick;
+	return TICKs;
+}
 
 void TIM0_STOP()
 {
 	_TIFR_ |= (1<<_TOV0_);
 	SET_prescaler(Prescaler_off_);
 }
-
 void wait_ovf()
 {
 	while((_TIFR_&(1<<_TOV0_))!=1);
 }
 
+void OVF_delay(float delay)
+{			
+		    uint8_t tick;
+		    uint32_t overFlows;
+			overFlows=calculte_total_ovf(delay);
+			tick = calculat_num_ticks(delay);
+	
+			for(uint8_t count = 0 ; count < overFlows ; count++)
+			{
+					if(count==0){SET_prescaler(Prescaler_1024_);}
+					
+					_TCNT0_=0;	
+					wait_ovf();
+					TIM0_STOP();
+					
+			}
+			
+			_TCNT0_=0;
+			_TCNT0_=255-tick;
+			SET_prescaler(Prescaler_1024_);
+			wait_ovf();
+			TIM0_STOP();
+			
 
+}
+
+
+/***************** init********************************/
 void Timer_MODEs(uint8_t T_mode)
 {
 	if(T_mode==MODE0)
@@ -114,5 +175,59 @@ void T_COM_non_PWM(uint8_t C_mode)
 	{
 		_TCCR0_ |=(1<< _COM01_)|(1<< _COM00_);// set
 	
+	}
+}
+/**************************************************/
+void DELAYms(float delay)
+{
+	delay=delay/1000;
+	if((Calculate_max_time(Prescaler_1_))>=delay)
+	{
+		_TCNT0_= 255-((CLOCK_INTERNAL*delay));
+		SET_prescaler(Prescaler_1_);
+		wait_ovf();
+		TIM0_STOP();
+		
+	}
+	
+	else if((Calculate_max_time(Prescaler_8_))>=delay)
+	{
+		
+		_TCNT0_= 255-((CLOCK_INTERNAL*delay)/Prescaler_8_);
+		SET_prescaler(Prescaler_8_);
+		wait_ovf();
+		TIM0_STOP();
+		
+	}
+	else if((Calculate_max_time(Prescaler_64_))>=delay)
+	{
+		_TCNT0_= 255-((CLOCK_INTERNAL*delay)/Prescaler_64_);
+		SET_prescaler(Prescaler_64_);
+		wait_ovf();
+		TIM0_STOP();
+		
+	}
+	
+	else if((Calculate_max_time(Prescaler_256_))>=delay)
+	{
+		_TCNT0_= 255-((CLOCK_INTERNAL*delay)/Prescaler_256_);
+		SET_prescaler(Prescaler_256_);
+		wait_ovf();
+		TIM0_STOP();
+		
+	}
+	else if((Calculate_max_time(Prescaler_1024_))>=delay)
+	{
+		
+		_TCNT0_= 255-((CLOCK_INTERNAL*delay)/Prescaler_1024_);
+		SET_prescaler(Prescaler_1024_);
+		wait_ovf();
+		TIM0_STOP();
+		
+	}
+	else if ((Calculate_max_time(Prescaler_1024_))<delay)
+	{
+		OVF_delay(delay);
+		
 	}
 }

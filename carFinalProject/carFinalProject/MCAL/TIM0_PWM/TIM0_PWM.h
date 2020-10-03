@@ -7,9 +7,8 @@
 #define DUTY_60 60
 #define DUTY_90 90
 
-	/* PWM Interface */
-	void TIM0_PWM_start(float duty, float freq);
-	void PWM_STOP();
-	void TIM0_PWM_INIT();
+void TIM0_PWM_start(float duty, float freq);
+
+void TIM0_PWM_INIT();
 
 #endif
