@@ -126,20 +126,12 @@ CS02   CS01 CS00	Description
 #define _TIFR_  *(volatile uint8_t*)(0x58)
 #define _SREG_  *(volatile uint8_t*)(0x5F)
 
-float Calculate_max_time (float PREASCLER);//
-uint16_t calculte_total_ovf(float DELAY);//
-uint8_t calculat_num_ticks(float DELAY);//
-void Timer_MODEs(uint8_t T_mode);//
-void SET_prescaler( uint16_t pre);//
-void TIM0_STOP();
-void wait_ovf();//
-void OVF_delay(float delay);//
-void DELAYms(float delay);//
-void T_COM_non_PWM(uint8_t C_mode);//
-void T_Fast_Norm();
-void T_Fast_Reserved();
-void T_Fast_NIN_Inverting();
-void T_Fast_Inverting();
+	/*TIMER Interface*/
+		 
+	void Timer_MODEs(uint8_t T_mode);
+	void SET_prescaler( uint16_t pre);
+	void TIM0_STOP();
+	void wait_ovf();
 
 
 #endif /* TIMER_DRIVER_H_ */

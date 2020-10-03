@@ -64,6 +64,7 @@ void CAR_STOP(){
 }
 
 
+<<<<<<< HEAD
 void CAR_MOTOR_ON()
 {	
 	DIO_WRITE_BIT(PORT_B, EN1 , HIGH);
@@ -75,3 +76,14 @@ void CAR_MOTOR_OFF()
 	DIO_WRITE_BIT(PORT_B, EN2 , LOW);
 }
 
+=======
+void CAR_MOTORS_ON(){
+	DIO_WRITE_BIT(PORT_B, EN1 , HIGH);
+	DIO_WRITE_BIT(PORT_B, EN2 , HIGH);
+}
+
+void CAR_MOTORS_OFF(){
+	DIO_WRITE_BIT(PORT_B, EN1 , LOW);
+	DIO_WRITE_BIT(PORT_B, EN2 , LOW);
+}
+>>>>>>> parent of 4ca6b43... -

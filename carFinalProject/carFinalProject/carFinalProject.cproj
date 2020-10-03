@@ -139,16 +139,16 @@
     <Compile Include="APP\APP.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ECUAL\CAR.c">
+    <Compile Include="ECUAL\CAR\CAR.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ECUAL\CAR.h">
+    <Compile Include="ECUAL\CAR\CAR.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ECUAL\REMOTE.c">
+    <Compile Include="ECUAL\REMOTE\REMOTE.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ECUAL\REMOTE.h">
+    <Compile Include="ECUAL\REMOTE\REMOTE.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="includes\definitions.h">
@@ -186,6 +186,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ECUAL\CAR" />
+    <Folder Include="ECUAL\REMOTE" />
     <Folder Include="MCAL" />
     <Folder Include="MCAL\DIO" />
     <Folder Include="includes" />

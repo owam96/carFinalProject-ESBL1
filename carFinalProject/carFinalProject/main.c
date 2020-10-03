@@ -1,19 +1,15 @@
 
 #include "includes/types.h"
-#include "includes/registers.h"
-#include "includes/definitions.h"
-#include "MCAL/DIO/DIO.h"
 #include "MCAL/TIM0/TIM0.h"
 #include "MCAL/TIM0_PWM/TIM0_PWM.h"
 #include "MCAL/TIM0/interrupt.h"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 4ca6b43... -
 #include "ECUAL/CAR/CAR.h"
 #include "APP/APP.h"
-=======
-#include "ECUAL/CAR.h"
-#include "ECUAL/REMOTE.h"
->>>>>>> parent of e4935ad... ..
 
 =======
 #include "ECUAL/CAR/CAR.h"
@@ -49,6 +45,7 @@ void __vector_11 (void)
 	{
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		CAR_MOTORS_ON();
 =======
 		DIO_WRITE_BIT(PORT_B, EN1 , HIGH);
@@ -57,11 +54,15 @@ void __vector_11 (void)
 =======
 		CAR_MOTOR_ON();
 >>>>>>> parent of 621282a... ..
+=======
+		CAR_MOTORS_ON();
+>>>>>>> parent of 4ca6b43... -
 		_TCNT0_=TON;
 		flag=1;
 	}
 	else
 	{
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -73,6 +74,10 @@ void __vector_11 (void)
 =======
 		CAR_MOTOR_OFF();
 >>>>>>> parent of 621282a... ..
+=======
+
+		CAR_MOTORS_OFF();
+>>>>>>> parent of 4ca6b43... -
 		_TCNT0_= TOFF;
 		flag=0;
 	}
